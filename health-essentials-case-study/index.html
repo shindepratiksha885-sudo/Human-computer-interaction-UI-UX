@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Essentials — HCI Midterm Case File</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="chart-bg" aria-hidden="true"></div>
+
+<!-- ============ SIDE INDEX ============ -->
+<nav class="case-index" aria-label="Case sections">
+  <div class="case-index__mark">HE</div>
+  <a href="#intake"><span>00</span>Intake</a>
+  <a href="#empathize"><span>01</span>Empathize</a>
+  <a href="#journey"><span>02</span>Journey</a>
+  <a href="#stories"><span>03</span>User Stories</a>
+  <a href="#ideate"><span>04</span>Ideate</a>
+  <a href="#architecture"><span>05</span>Architecture</a>
+  <a href="#prioritize"><span>06</span>Prioritize</a>
+  <a href="#colophon"><span>07</span>Colophon</a>
+</nav>
+
+<main>
+
+  <!-- ============ HERO / INTAKE ============ -->
+  <header class="intake" id="intake">
+    <div class="intake__frame">
+      <div class="intake__tag">HCI Midterm · Case File No. 026</div>
+      <h1 class="intake__title">A hostel runs on borrowed<br> crepe bandages.</h1>
+      <p class="intake__sub">An end-to-end research file on how students in a university hostel
+        find health essentials during urgent, painful, ordinary moments — and the information
+        architecture built to fix it.</p>
+
+      <dl class="intake__chart">
+        <div><dt>Patient / Problem space</dt><dd>Finding health essentials in a university hostel</dd></div>
+        <div><dt>Chief complaint</dt><dd>No reliable way to know who has what, right now</dd></div>
+        <div><dt>Method</dt><dd>Interviews · Empathy map · Journey map · Card sort · Tree test</dd></div>
+        <div><dt>Status</dt><dd>V1 tested, revised to Final IA (V2)</dd></div>
+      </dl>
+    </div>
+    <div class="intake__vitals">
+      <span class="intake__vitals-label">emotion line, at a glance</span>
+      <svg viewBox="0 0 460 160" class="mini-vitals" role="img" aria-label="Emotion line preview, dipping sharply then recovering">
+        <polyline points="0,55 40,50 80,95 120,100 160,92 200,102 240,88 270,140 300,90 340,35 380,40 420,55 460,52" />
+        <circle cx="270" cy="140" r="5" class="mini-vitals__dot"/>
+      </svg>
+    </div>
+  </header>
+
+  <!-- ============ BROKEN EXPERIENCE ============ -->
+  <section class="broken">
+    <div class="broken__text">
+      <p class="eyebrow">Case note · 001</p>
+      <h2>The broken experience</h2>
+      <p>A third-year hostel student sprained her ankle playing badminton after dinner. Nothing
+        dramatic — until the pain set in and she needed a crepe bandage and pain-relief spray
+        <em>immediately</em>. What should have taken minutes turned into a scramble across rooms,
+        roommates, and group chats, while she sat in pain waiting for someone, anyone, to reply.</p>
+      <p>That gap — between <strong>needing</strong> a health essential and <strong>actually getting
+        it</strong> — is the broken experience this file investigates.</p>
+    </div>
+    <figure class="polaroid">
+      <img src="assets/broken-experience.jpg" alt="Handwritten midterm note describing the broken experience: a hostel student sprains her ankle and struggles to find a crepe bandage and pain relief spray in time.">
+      <figcaption>Original field note — Broken Experience</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ PHASE 1: EMPATHIZE ============ -->
+  <section class="phase" id="empathize">
+    <div class="phase__head">
+      <p class="eyebrow">Phase 1 · Empathy &amp; Definition</p>
+      <h2>Who is actually waiting on that bandage?</h2>
+      <p class="phase__lede">Research started with an assumption, then went and tested it against three
+        real hostel students through short interviews and a supporting survey.</p>
+    </div>
+
+    <div class="persona-pair">
+      <article class="persona-card persona-card--proto">
+        <header>
+          <span class="persona-card__kicker">Before research</span>
+          <h3>Proto-Persona</h3>
+        </header>
+        <p class="persona-name">Dipti Sharma, 2nd-year undergrad</p>
+        <p>Lives in a university hostel. Assumed to always want to stay prepared for minor health
+          emergencies and to recover quickly without interrupting daily life.</p>
+        <div class="persona-card__row">
+          <div>
+            <h4>Assumed goal</h4>
+            <p>Find immediate help during unexpected health situations and get back to normal fast.</p>
+          </div>
+          <div>
+            <h4>Assumed pain</h4>
+            <p>Doesn't always have health essentials on hand; finding help can be stressful and slow.</p>
+          </div>
+        </div>
+        <img src="assets/proto-persona.jpg" alt="Handwritten proto-persona note for Dipti Sharma, a 2nd year undergraduate hostel student, listing assumed goals and potential pain points before user research.">
+      </article>
+
+      <article class="persona-card persona-card--true">
+        <header>
+          <span class="persona-card__kicker">After 3 interviews + survey</span>
+          <h3>True User Persona</h3>
+        </header>
+        <p class="persona-name">20-year-old undergrad, university hostel resident</p>
+        <p>Occasionally faces minor health emergencies — fever, injuries, menstrual discomfort. She
+          doesn't just want medicine. She wants the right essential, <strong>fast</strong>, so she can
+          get back to her day without wasting time in pain.</p>
+        <div class="persona-card__row">
+          <div>
+            <h4>Real pain point</h4>
+            <p>Asks roommate first, then friends, then seniors, then the hostel WhatsApp group.
+              Replies aren't instant — the search itself becomes stressful, slow, and uncertain
+              while she's already unwell.</p>
+          </div>
+        </div>
+        <img src="assets/true-persona.jpg" alt="Handwritten true user persona note describing a 20 year old hostel student's real goals and pain points, based on interviews and survey data.">
+      </article>
+    </div>
+
+    <div class="evidence">
+      <p class="eyebrow">Supporting evidence · hostel survey, 8 respondents</p>
+      <div class="evidence__grid">
+        <blockquote>“No body is active on WhatsApp for such things. And I had to reach out to
+          people when I was sick.”<cite>— Ayush, on asking for Azithromycin</cite></blockquote>
+        <blockquote>“I wish I knew who had the required medicine so I didn't waste my time asking
+          people here and there.”<cite>— Rudra, on cough syrup, more than 5 people asked</cite></blockquote>
+        <blockquote>“A friend had it, but I ended up finding that out way later.”
+          <cite>— Aryan, on Benadryl gargle</cite></blockquote>
+        <blockquote>“Being aware of the essentials that are available on campus itself would be
+          helpful.” <cite>— Aryan, on what would make it easier</cite></blockquote>
+      </div>
+      <p class="evidence__stat"><strong>6 of 8</strong> respondents could not find the item on their
+        first attempt · <strong>5 of 8</strong> asked more than 5 people before getting help.</p>
+    </div>
+
+    <div class="empathy-map">
+      <p class="eyebrow">Empathy map · understanding the mindset</p>
+      <div class="empathy-map__grid">
+        <div class="empathy-cell empathy-cell--says">
+          <h4>Says</h4>
+          <ul>
+            <li>“Does anyone have a crepe bandage?”</li>
+            <li>“I asked my roommate first.”</li>
+            <li>“The WhatsApp group didn't respond quickly.”</li>
+            <li>“I finally got it, but it took so long.”</li>
+          </ul>
+        </div>
+        <div class="empathy-cell empathy-cell--thinks">
+          <h4>Thinks</h4>
+          <ul>
+            <li>“I hope someone has what I need.”</li>
+            <li>“Why isn't anyone replying?”</li>
+            <li>“I don't want to keep bothering anyone.”</li>
+            <li>“There has to be a faster way than this.”</li>
+          </ul>
+        </div>
+        <div class="empathy-cell empathy-cell--does">
+          <h4>Does</h4>
+          <ul>
+            <li>Asks roommates first, then friends and seniors</li>
+            <li>Sends a message in the hostel WhatsApp group</li>
+            <li>Waits for replies, then makes phone calls</li>
+            <li>Visits other hostel rooms if still unable to find it</li>
+          </ul>
+        </div>
+        <div class="empathy-cell empathy-cell--feels">
+          <h4>Feels</h4>
+          <ul>
+            <li>Frustrated · Stressed · Anxious</li>
+            <li>Helpless · Impatient</li>
+            <li>Relieved — only after finally getting the essential</li>
+          </ul>
+        </div>
+      </div>
+      <img src="assets/empathy-map.jpg" alt="Handwritten empathy map on Says, Thinks, Does, and Feels quadrants, capturing real quotes and behaviours from student interviews about finding health essentials." class="empathy-map__scan">
+    </div>
+  </section>
+
+  <!-- ============ PHASE 1b: JOURNEY MAP / VITALS ============ -->
+  <section class="phase phase--dark" id="journey">
+    <div class="phase__head phase__head--light">
+      <p class="eyebrow eyebrow--light">Journey map · one scenario, traced live</p>
+      <h2>The night an insect bite became a 40-minute search</h2>
+      <p class="phase__lede phase__lede--light">A specific scenario was mapped stage by stage —
+        action, thought, and feeling — then plotted as an emotion line, the way a nurse would
+        chart vitals.</p>
+    </div>
+
+    <div class="vitals-monitor">
+      <div class="vitals-monitor__readout">
+        <svg viewBox="0 0 1000 300" class="vitals-chart" role="img" aria-labelledby="vitalsTitle vitalsDesc">
+          <title id="vitalsTitle">Emotion line across the journey</title>
+          <desc id="vitalsDesc">Calm at the incident, dropping through concern, hope, and stress into the lowest point while searching across the hostel, then recovering sharply once the item is found, settling into a thoughtful reflection.</desc>
+          <line x1="0" y1="150" x2="1000" y2="150" class="vitals-chart__baseline"/>
+          <polyline
+            class="vitals-chart__line"
+            points="0,150 60,120 130,205 210,220 290,200 370,225 450,195 530,270 600,190 680,80 760,95 850,135 1000,140" />
+          <circle cx="530" cy="270" r="7" class="vitals-chart__dip"/>
+        </svg>
+        <div class="vitals-monitor__labels">
+          <span>Incident</span>
+          <span>Problem<br>realization</span>
+          <span>Calls<br>doctor</span>
+          <span>Checks<br>room</span>
+          <span>Starts<br>searching</span>
+          <span>Searches<br>across hostel</span>
+          <span class="is-dip">Lowest<br>dip</span>
+          <span>Finds the<br>item</span>
+          <span>Reflection</span>
+        </div>
+      </div>
+
+      <table class="vitals-monitor__table">
+        <caption>Journey map, read stage by stage</caption>
+        <thead>
+          <tr><th>Stage</th><th>User action</th><th>Thought</th><th>Feeling</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Incident</td><td>Gets bitten by an insect late at night in the hostel</td><td>“It's just an insect bite, it'll be fine.”</td><td>Calm</td></tr>
+          <tr><td>Problem realization</td><td>Bite starts itching and burning badly</td><td>“This is getting worse, I need something for it.”</td><td>Concerned</td></tr>
+          <tr><td>Seeks medical advice</td><td>Calls the campus doctor for help</td><td>“The doctor will tell me what to do.”</td><td>Hopeful</td></tr>
+          <tr><td>Starts searching</td><td>Doctor suggests turmeric; checks her room and asks roommates</td><td>“Maybe someone nearby has it.”</td><td>Slightly stressed</td></tr>
+          <tr><td>Searches across hostel</td><td>Visits other rooms, calls friends, asks seniors, keeps searching</td><td>“Why is it so difficult to find such a basic thing?”</td><td class="is-dip">Lowest point</td></tr>
+          <tr><td>Finds the item</td><td>A senior finally gives her turmeric powder</td><td>“Finally, I found it.”</td><td>Relieved</td></tr>
+          <tr><td>Reflection</td><td>Applies the remedy and rests</td><td>“Getting a simple health essential shouldn't take this much effort.”</td><td>Thoughtful</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pain-point">
+      <p class="eyebrow eyebrow--light">Core pain point</p>
+      <p>Even after knowing exactly what she needed, she still had to go room to room and contact
+        several people to find it. Instead of focusing on getting relief, she spent her time
+        <strong>searching</strong> — while dealing with pain, discomfort, and growing frustration.</p>
+    </div>
+
+    <img src="assets/journey-map.jpg" alt="Handwritten user journey map table with stage, user action, thoughts, and feelings columns for a hostel student dealing with an insect bite." class="scan scan--dark">
+    <img src="assets/emotion-line.jpg" alt="Hand-drawn emotion line chart showing the lowest point on the journey and the written core pain point statement." class="scan scan--dark">
+  </section>
+
+  <!-- ============ USER STORIES ============ -->
+  <section class="stories" id="stories">
+    <p class="eyebrow">Turning the pain point into requirements</p>
+    <h2>Three user stories</h2>
+    <div class="story-cards">
+      <article class="story-card">
+        <span class="story-card__num">01</span>
+        <p><strong>As a</strong> hostel student who has sprained my ankle,</p>
+        <p><strong>I want</strong> to quickly know where I can get a crepe bandage and a pain relief spray,</p>
+        <p><strong>so that</strong> I can treat my injury without spending time searching while in pain.</p>
+      </article>
+      <article class="story-card">
+        <span class="story-card__num">02</span>
+        <p><strong>As a</strong> hostel student dealing with an insect bite late at night,</p>
+        <p><strong>I want</strong> to easily let nearby students know that I need a specific health essential,</p>
+        <p><strong>so that</strong> I can receive help quickly and focus on recovering.</p>
+      </article>
+      <article class="story-card">
+        <span class="story-card__num">03</span>
+        <p><strong>As a</strong> first-year hostel student experiencing continuous coughing,</p>
+        <p><strong>I want</strong> to know if a cough syrup is available nearby before my condition gets worse,</p>
+        <p><strong>so that</strong> I can get timely relief and avoid unnecessary stress.</p>
+      </article>
+    </div>
+    <img src="assets/user-stories.jpg" alt="Handwritten notes for three user stories describing hostel students' needs for a crepe bandage, help with an insect bite, and cough syrup." class="scan">
+  </section>
+
+  <!-- ============ PHASE 2: IDEATE & EVALUATE ============ -->
+  <section class="phase" id="ideate">
+    <div class="phase__head">
+      <p class="eyebrow">Phase 2 · Ideate &amp; Evaluate</p>
+      <h2>20 features, sorted by 10 real students</h2>
+      <p class="phase__lede">The three user stories were broken into 20 candidate features, then
+        handed to 10 students as an open/hybrid card sort — no categories were forced. Patterns in
+        where they placed each card became the first information architecture.</p>
+    </div>
+
+    <div class="cardsort">
+      <table class="cardsort__table">
+        <caption>Card sort results — majority placement per feature (n = 10)</caption>
+        <thead>
+          <tr><th>Feature</th><th>Majority category</th><th>Agreement</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Search Health Essentials</td><td><span class="tag tag--find">Find Essentials</span></td><td>80%</td></tr>
+          <tr><td>Nearby Essentials</td><td><span class="tag tag--find">Find Essentials</span></td><td>60%</td></tr>
+          <tr><td>Nearby Availability</td><td><span class="tag tag--find">Find Essentials</span></td><td>50%</td></tr>
+          <tr><td>Item Availability Status</td><td><span class="tag tag--find">Find Essentials</span></td><td>40%</td></tr>
+          <tr><td>Confirm Availability</td><td><span class="tag tag--find">Find Essentials</span></td><td>40%</td></tr>
+          <tr><td>Request Notifications</td><td><span class="tag tag--req">Requests</span></td><td>90%</td></tr>
+          <tr><td>Emergency Request</td><td><span class="tag tag--req">Requests</span></td><td>70%</td></tr>
+          <tr><td>Community Help Requests</td><td><span class="tag tag--req">Requests</span></td><td>70%</td></tr>
+          <tr><td>Request History</td><td><span class="tag tag--req">Requests</span></td><td>70%</td></tr>
+          <tr><td>Frequently Requested Essentials</td><td><span class="tag tag--req">Requests</span></td><td>60%</td></tr>
+          <tr><td>Student Contact Details</td><td><span class="tag tag--contact">Contacts</span></td><td>80%</td></tr>
+          <tr><td>Hostel &amp; Room Number</td><td><span class="tag tag--contact">Contacts</span> / <span class="tag tag--my">My Essentials</span></td><td>40% split</td></tr>
+          <tr><td>Medicine Information</td><td><span class="tag tag--med">Medical Support</span></td><td>90%</td></tr>
+          <tr><td>Basic First-Aid Guidance</td><td><span class="tag tag--med">Medical Support</span></td><td>80%</td></tr>
+          <tr><td>Infirmary Contact Information</td><td><span class="tag tag--med">Medical Support</span></td><td>70%</td></tr>
+          <tr><td>Emergency Contacts</td><td><span class="tag tag--med">Medical Support</span></td><td>40% split</td></tr>
+          <tr><td>My Available Health Essentials</td><td><span class="tag tag--my">My Essentials</span></td><td>90%</td></tr>
+          <tr><td>Remove Health Essential</td><td><span class="tag tag--my">My Essentials</span></td><td>80%</td></tr>
+          <tr><td>Add Health Essential</td><td><span class="tag tag--my">My Essentials</span></td><td>70%</td></tr>
+          <tr><td>Update Availability</td><td><span class="tag tag--my">My Essentials</span></td><td>40% split</td></tr>
+        </tbody>
+      </table>
+      <div class="cardsort__note">
+        <h4>Pattern found</h4>
+        <p>Five clear clusters emerged even without pre-set categories: <strong>Find Essentials</strong>,
+          <strong>Requests</strong>, <strong>Contacts</strong>, <strong>Medical Support</strong>, and
+          <strong>My Essentials</strong>. Four cards split closer to 40% across two categories — Hostel
+          &amp; Room Number, Emergency Contacts, Update Availability, and Item/Confirm Availability —
+          flagging them as candidates the tree test would need to confirm.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INFORMATION ARCHITECTURE ============ -->
+  <section class="phase" id="architecture">
+    <div class="phase__head">
+      <p class="eyebrow">From card sort to structure</p>
+      <h2>V1 Information Architecture → Tree Test → Final IA</h2>
+      <p class="phase__lede">The majority clusters became a 5-branch menu tree. Five students then
+        ran a tree test against it, cold — five findability tasks, no visual design, just labels.</p>
+    </div>
+
+    <div class="ia-compare">
+      <figure class="ia-figure">
+        <span class="ia-figure__badge">V1 — from card sort</span>
+        <img src="assets/ia-v1.png" alt="V1 Information Architecture menu tree with five branches: Find Essentials, Requests, Contacts, Medical Support, and My Essentials, before tree testing.">
+      </figure>
+      <div class="ia-arrow" aria-hidden="true">
+        <span>tree-tested with 5 students</span>
+        →
+      </div>
+      <figure class="ia-figure ia-figure--final">
+        <span class="ia-figure__badge ia-figure__badge--final">Final IA — V2</span>
+        <img src="assets/ia-v2.png" alt="Final Information Architecture V2 menu tree, with Request History moved into Requests and Campus Emergency Contacts moved into Contacts after the tree test.">
+      </figure>
+    </div>
+
+    <div class="treetest">
+      <h3>Tree test — 5 students, 5 findability tasks</h3>
+      <table class="treetest__table">
+        <thead>
+          <tr><th>Task</th><th>Expected in V1</th><th>What students actually did</th><th>Result</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Find a health essential you need</td>
+            <td>Find Essentials → Search Health Essentials</td>
+            <td>5 of 5 went straight to Find Essentials → Search Health Essentials</td>
+            <td><span class="result result--pass">Pass 5/5</span></td>
+          </tr>
+          <tr>
+            <td>Respond to another student's request</td>
+            <td>Requests → Respond to Request</td>
+            <td>4 of 5 chose Respond to Request; 1 chose the neighbouring Community Help Requests</td>
+            <td><span class="result result--partial">Pass 4/5</span></td>
+          </tr>
+          <tr>
+            <td>View your previous requests</td>
+            <td>Contacts → Request History</td>
+            <td>5 of 5 looked under <strong>Requests</strong>, not Contacts</td>
+            <td><span class="result result--fail">Fail 0/5</span></td>
+          </tr>
+          <tr>
+            <td>Find campus emergency contact numbers</td>
+            <td>Requests → Campus Emergency Contacts</td>
+            <td>5 of 5 looked under <strong>Contacts</strong>, not Requests</td>
+            <td><span class="result result--fail">Fail 0/5</span></td>
+          </tr>
+          <tr>
+            <td>Add a new health essential you have</td>
+            <td>My Essentials → Add Health Essential</td>
+            <td>5 of 5 went straight to My Essentials → Add Health Essential</td>
+            <td><span class="result result--pass">Pass 5/5</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="treetest__fix">
+        <h4>How the IA was fixed</h4>
+        <p>Every student expected <strong>Request History</strong> to live with the rest of their
+          requests, and <strong>Campus Emergency Contacts</strong> to live with the rest of their
+          contacts — the opposite of where the card-sort majority had first placed them. The Final
+          IA (V2) swaps both: Request History moves into <em>Requests</em>, Campus Emergency
+          Contacts moves into <em>Contacts</em>. Everything else in V1 tested cleanly and was kept
+          as is.</p>
+      </div>
+
+      <div class="treetest__scans">
+        <img src="assets/tree-test-1.png" alt="Screenshot of WhatsApp chat showing the first three tree test participants' answers to five findability tasks.">
+        <img src="assets/tree-test-2.png" alt="Screenshot of WhatsApp chat showing the fourth and fifth tree test participants' answers to five findability tasks.">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PHASE 3: PRIORITIZATION ============ -->
+  <section class="phase phase--dark" id="prioritize">
+    <div class="phase__head phase__head--light">
+      <p class="eyebrow eyebrow--light">Phase 3 · Prioritization</p>
+      <h2>Budget for an MVP: 4 must-haves, no more</h2>
+      <p class="phase__lede phase__lede--light">Every feature from the Final IA was sorted with
+        MoSCoW. Only four could be Must-Have — so the two features fought over hardest went through
+        a DFV Matrix to settle it with evidence, not opinion.</p>
+    </div>
+
+    <div class="moscow">
+      <div class="moscow__col moscow__col--must">
+        <h4>Must Have</h4>
+        <ul>
+          <li>Search Health Essentials</li>
+          <li>Emergency Request</li>
+          <li>Respond to Request</li>
+          <li>Student Contact Details</li>
+        </ul>
+      </div>
+      <div class="moscow__col moscow__col--should">
+        <h4>Should Have</h4>
+        <ul>
+          <li>Nearby Essentials</li>
+          <li>My Available Health Essentials</li>
+          <li>Add Health Essential</li>
+          <li>Update My Essentials</li>
+          <li>Request Notifications</li>
+          <li>Hostel &amp; Room Number</li>
+        </ul>
+      </div>
+      <div class="moscow__col moscow__col--could">
+        <h4>Could Have</h4>
+        <ul>
+          <li>Common Health Essentials</li>
+          <li>Available Items</li>
+          <li>Community Help Requests</li>
+          <li>Request History</li>
+          <li>Remove Health Essential</li>
+        </ul>
+      </div>
+      <div class="moscow__col moscow__col--wont">
+        <h4>Won't Have</h4>
+        <ul>
+          <li>Infirmary Contact Information</li>
+          <li>Basic First-Aid Guidance</li>
+          <li>Medicine Information</li>
+          <li>Campus Emergency Contacts</li>
+        </ul>
+      </div>
+    </div>
+    <img src="assets/moscow.png" alt="MoSCoW prioritization board sorting all Health Essentials app features into Must Have, Should Have, Could Have, and Won't Have columns." class="scan scan--dark scan--wide">
+
+    <div class="dfv">
+      <h3>The fight for the 4th Must-Have spot</h3>
+      <p class="dfv__lede">Two features were debated hardest for the final Must-Have slot:
+        <strong>Search Health Essentials</strong> and <strong>Emergency Request</strong>. Both were
+        scored 1–5 on Desirability, Feasibility, and Viability.</p>
+
+      <div class="dfv__cards">
+        <article class="dfv-card dfv-card--winner">
+          <header>
+            <h4>Search Health Essentials</h4>
+            <span class="dfv-card__score">15<small>/15</small></span>
+          </header>
+          <dl>
+            <div><dt>Desirability <span class="dfv-pip">5/5</span></dt>
+              <dd>Nearly every interviewee said the first thing they wanted was a quick way to
+                check whether someone already had the item — before asking anyone or waiting for
+                replies.</dd></div>
+            <div><dt>Feasibility <span class="dfv-pip">5/5</span></dt>
+              <dd>Mainly needs a searchable list of health essentials shared by students —
+                straightforward to build for an MVP.</dd></div>
+            <div><dt>Viability <span class="dfv-pip">5/5</span></dt>
+              <dd>The starting point of the whole experience. If users can't search, every other
+                feature becomes less useful.</dd></div>
+          </dl>
+        </article>
+
+        <article class="dfv-card">
+          <header>
+            <h4>Emergency Request</h4>
+            <span class="dfv-card__score">13<small>/15</small></span>
+          </header>
+          <dl>
+            <div><dt>Desirability <span class="dfv-pip">4/5</span></dt>
+              <dd>Valuable in urgent situations, but most students said they'd want to check
+                availability first, before creating a request.</dd></div>
+            <div><dt>Feasibility <span class="dfv-pip">4/5</span></dt>
+              <dd>Needs more moving parts than search — creating requests, notifying students,
+                managing responses.</dd></div>
+            <div><dt>Viability <span class="dfv-pip">5/5</span></dt>
+              <dd>Matters when searching alone isn't enough — makes the community genuinely
+                helpful to each other.</dd></div>
+          </dl>
+        </article>
+      </div>
+      <p class="dfv__verdict">Search Health Essentials wins the final Must-Have spot, 15/15 to
+        13/15 — it's the step every other feature depends on. Emergency Request stays a strong
+        Must-Have on its own merit and remains in scope.</p>
+    </div>
+  </section>
+
+  <!-- ============ COLOPHON ============ -->
+  <footer class="colophon" id="colophon">
+    <p class="eyebrow eyebrow--light">Colophon</p>
+    <p>Human-Computer Interaction — Midterm submission. Research phases: Empathize &amp; Define ·
+      Ideate &amp; Evaluate · Prioritization. Methods used: field interviews, survey (8 respondents),
+      empathy mapping, user journey mapping, open/hybrid card sort (10 participants), tree test
+      (5 participants), MoSCoW, DFV Matrix. Built as a single scrolling page in hand-written HTML
+      and CSS — no JavaScript, no frameworks.</p>
+    <p class="colophon__repo">GitHub Pages link: <em>— add repository link here —</em></p>
+  </footer>
+
+</main>
+</body>
+</html>
